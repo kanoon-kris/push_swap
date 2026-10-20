@@ -1,0 +1,10 @@
+*.a
+*.o
+*.out
+*.exe
+.vscode/
+push_swap_subject.pdf
+push_swap_guide_th.md
+*.txt
+main.c
+plan/
