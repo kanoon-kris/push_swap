@@ -3,27 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pmansak <pmansak@student.42bangkok.com>    +#+  +:+       +#+        */
+/*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/12 10:43:38 by pmansak           #+#    #+#             */
-/*   Updated: 2026/10/20 10:43:38 by pmansak          ###   ########.fr       */
+/*   Created: 2026/10/23 15:16:33 by kboonkos          #+#    #+#             */
+/*   Updated: 2026/10/23 17:57:08 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdio.h>
-#include <limits.h>
+# include <stdbool.h>
+# include "libft/libft.h"
 
-int	parse_int(const char *s, int *out);
-
-typedef struct s_data
+typedef struct s_payload
 {
-	int				argc;
-	char			*argv;
-	struct s_data	*next;
-}	t_data;
+	int	value;
+	bool	is_processed;
+}		t_payload;
+
+// Basic stack operations to form the push_swap operations
+void	push(t_list **lst, t_list *new);
+t_list	*pop(t_list **lst);
+int	peek(t_list *lst);
+bool	is_empty(t_list *lst);
 
 #endif
