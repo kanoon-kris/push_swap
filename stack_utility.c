@@ -6,12 +6,13 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 17:57:57 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/10/26 01:17:44 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/10/26 01:41:58 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdbool.h>
 
+// Alike ft_lstadd_front, this is to preseve a perspective of stack structure.
 void	push(t_list **lst, t_list *new)
 {
 	if (!lst || !new)
@@ -32,6 +33,7 @@ t_list	*pop(t_list **lst)
 	return (top);
 }
 
+// The parameter is unguarded.
 int	peek(t_list *lst)
 {
 	return (lst->content->value);
