@@ -6,7 +6,7 @@
 #    By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/23 15:40:51 by kboonkos          #+#    #+#              #
-#    Updated: 2026/11/08 00:15:00 by kboonkos         ###   ########.fr        #
+#    Updated: 2026/11/08 00:41:43 by kboonkos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ fclean: clean
 re: fclean all
 
 run:
-	./$(NAME) $$(cat args.txt)
+	@echo "Edit this line"
 
 norm:
 	norminette $(SRCS)
