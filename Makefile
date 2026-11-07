@@ -6,7 +6,7 @@
 #    By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/23 15:40:51 by kboonkos          #+#    #+#              #
-#    Updated: 2026/10/23 17:28:06 by kboonkos         ###   ########.fr        #
+#    Updated: 2026/11/08 00:15:00 by kboonkos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS += $(INCLUDE)
 LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
-SRCS = push_swap.c parser.c
+SRCS = push_swap.c parser.c payload_utility.c ft_strcmp.c disorder.c
 OBJS = $(SRCS:.c=.o)
 DEPS = $(OBJS:.o=.d)
 
@@ -47,7 +47,12 @@ fclean: clean
 re: fclean all
 
 run:
-	./$(NAME)
+	./$(NAME) $$(cat args.txt)
 
-.PHONY: all clean fclean re run
+norm:
+	norminette $(SRCS)
+	norminette -R CheckForbiddenSourceHeader push_swap.h libft/libft.h
+
+# Include the dependency files if they exist.
 -include $(DEPS)
+.PHONY: all clean fclean re run

@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utility.c                                :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/26 02:03:32 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/10/26 02:54:07 by kboonkos         ###   ########.fr       */
+/*   Created: 2026/11/05 14:27:44 by kboonkos          #+#    #+#             */
+/*   Updated: 2026/11/05 14:29:56 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stddef.h>
 
-void	p(t_list **dst, t_list **src)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	push(dst, pop(src));
-}
+	size_t	i;
 
-void	s(t_list **lst)
-{
-	t_list	*temp;
-	t_list	*temp02;
-
-	temp = pop(lst);
-	temp02 = pop(lst);
-	push(lst, temp);
-	push(lst, temp02);
-}
-
-void	r(t_list **lst)
-{
-	t_list	*temp;
-
-	temp = pop(lst);
-	ft_lstadd_last(lst, temp);
-}
-
-void	rr(t_list **dst, t_list **src)
-{
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
