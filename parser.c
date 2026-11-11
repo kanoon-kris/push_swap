@@ -6,7 +6,7 @@
 /*   By: pmansak <pmansak@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 15:56:02 by pmansak           #+#    #+#             */
-/*   Updated: 2026/11/07 17:36:58 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/08 20:30:11 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <limits.h>
 #include <stdbool.h>
 
+/*
 // To verify if the format of passed string matches with flag syntax.
 static bool	is_valid_flag_syntax(const char *str)
 {
@@ -30,9 +31,10 @@ static bool	is_valid_flag_syntax(const char *str)
 		return (true);
 	return (false);
 }
-
+*/
+/*
 // To verify if the passed string is one of valid flags.
-bool	is_valid_flag(const char *str)
+static bool	is_valid_flag(const char *str)
 {
 	const char	*flags[] = {"--simple", "--medium", "--complex",
 		"--adaptive", "--bench"};
@@ -49,6 +51,7 @@ bool	is_valid_flag(const char *str)
 	}
 	return (false);
 }
+*/
 
 /**
  *  Parameter:

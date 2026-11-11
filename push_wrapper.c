@@ -6,20 +6,20 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 19:14:55 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/04 19:17:00 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/08 20:38:28 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_context *ctx)
 {
-	if (push_top(a, b))
-		ft_putendl_fd("pa", 1);
+	if ((ctx) && (push_top(&ctx->a, &ctx->b)))
+		record(ctx, PA);
 }
 
-void	pb(t_list **b, t_list **a)
+void	pb(t_context *ctx)
 {
-	if (push_top(b, a))
-		ft_putendl_fd("pb", 1);
+	if ((ctx) && (push_top(&ctx->b, &ctx->a)))
+		record(ctx, PB);
 }

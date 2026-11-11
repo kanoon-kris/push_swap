@@ -6,12 +6,16 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 02:03:32 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/04 18:41:03 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/08 20:19:11 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdbool.h>
+
+// In case of these helpers:
+//     - true implies performed operation(s),
+//	   - false implies no operations performed.	
 
 bool	push_top(t_list **dst, t_list **src)
 {

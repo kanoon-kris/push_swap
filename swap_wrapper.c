@@ -6,36 +6,43 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 18:54:04 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/04 19:13:59 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/08 20:35:11 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <stdbool.h>
 
-void	sa(t_list **a)
+// WARNING: (ctx->is_failed) MUST BE HANDLED BY record() ONLY.
+
+// Basically, if ctx is not NULL and the SA has been performed,
+// then record SA. The same applies to others wrappers, as well.
+void	sa(t_context *ctx)
 {
-	if (swap(a))
-		ft_putendl_fd("sa", 1);
+	if ((ctx) && (swap(&ctx->a)))
+		record(ctx, SA);
 }
 
-void	sb(t_list **b)
+void	sb(t_context *ctx)
 {
-	if (swap(b))
-		ft_putendl_fd("sb", 1);
+	if ((ctx) && (swap(&ctx->b)))
+		record(ctx, SB);
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_context *ctx)
 {
 	bool	is_a_swapped;
 	bool	is_b_swapped;
 
-	is_a_swapped = swap(a);
-	is_b_swapped = swap(b);
-	if (is_a_swapped && is_b_swapped)
-		ft_putendl_fd("ss", 1);
-	else if (is_a_swapped)
-		ft_putendl_fd("sa", 1);
-	else if (is_b_swapped)
-		ft_putendl_fd("sb", 1);
+	if (ctx)
+	{
+		is_a_swapped = swap(&ctx->a);
+		is_b_swapped = swap(&ctx->b);
+		if ((is_a_swapped) && (is_b_swapped))
+			record(ctx, SS);
+		else if (is_a_swapped)
+			record(ctx, SA);
+		else if (is_b_swapped)
+			record(ctx, SB);
+	}
 }

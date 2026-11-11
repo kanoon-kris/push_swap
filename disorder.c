@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 19:55:49 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/08 00:23:11 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/11 00:08:23 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ long long *total_pair)
 
 	*mistake = 0;
 	*total_pair = 0;
+	if (!lst)
+		return ;
 	anchor = lst;
 	while (anchor->next)
 	{
@@ -50,18 +52,21 @@ long long *total_pair)
 	}
 }
 
-void	compute_disorder(t_list *lst)
+// Disorder is computed in (`long long`) integers. The intermediate value,
+// (10000m) cannot overflow for any input a command line can carry.
+// The limit is about 43 million elements.
+void	compute_disorder(t_context *ctx)
 {
-	long long	m;
-	long long	t;
-	long long	h;
+	long long	mistake;
+	long long	total_pair;
 
-	if (!lst)
+	if (!ctx)
 		return ;
-	compute_mistake_and_total_pair(lst, &m, &t);
-	if (t < 1)
-		h = 0;
+	compute_mistake_and_total_pair(ctx->a, &ctx->mistake, &ctx->total_pair);
+	mistake = ctx->mistake;
+	total_pair = ctx->total_pair;
+	if (ctx->total_pair < 1)
+		ctx->disorder = 0;
 	else
-		h = (10000 * m + t / 2) / t;
-	print_disorder(h);
+		ctx->disorder = (10000 * mistake + total_pair / 2) / total_pair;
 }

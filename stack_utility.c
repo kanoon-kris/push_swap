@@ -6,10 +6,11 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 17:57:57 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/04 18:39:40 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/11 01:26:37 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
 #include <stdbool.h>
 
 // Alike ft_lstadd_front, this is to preseve a perspective of stack structure.
@@ -37,7 +38,7 @@ t_list	*pop(t_list **lst)
 // The parameter is unguarded.
 int	peek(t_list *lst)
 {
-	return (lst->content->value);
+	return (((t_payload *)(lst->content))->value);
 }
 
 // To check if a given lst is empty.
