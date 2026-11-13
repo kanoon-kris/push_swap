@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 15:16:33 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/11 23:22:09 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/13 21:41:58 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,5 +145,8 @@ void		sort_three(t_context *ctx);
 
 // simple_strategy.c
 void		simple_sort(t_context *ctx);
+
+// medium_strategy.c
+bool		medium_sort(t_context *ctx);
 
 #endif

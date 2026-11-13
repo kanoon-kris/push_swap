@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 15:23:10 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/12 00:08:13 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/13 21:42:17 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static bool	run_strategy(t_context *ctx)
 	if (ctx->resolved_strategy == SIMPLE)
 		simple_sort(ctx);
 	else if (ctx->resolved_strategy == MEDIUM)
-		return (false);
+		medium_sort(ctx);
 	else
-		return (false);
+		return (true);
 	return (true);
 }
 

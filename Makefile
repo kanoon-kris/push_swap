@@ -6,7 +6,7 @@
 #    By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/23 15:40:51 by kboonkos          #+#    #+#              #
-#    Updated: 2026/11/11 23:30:02 by kboonkos         ###   ########.fr        #
+#    Updated: 2026/11/13 21:41:34 by kboonkos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 SRCS = push_swap.c parser.c parser_02.c payload_utility.c ft_strcmp.c \
 	disorder.c bench.c log_printer.c record.c cleanup.c sort_three.c \
 	rotate_wrapper.c reverse_rotate_wrapper.c swap_wrapper.c push_wrapper.c \
-	push_swap_helper.c stack_utility.c simple_strategy.c
+	push_swap_helper.c stack_utility.c simple_strategy.c medium_strategy.c
 OBJS = $(SRCS:.c=.o)
 DEPS = $(OBJS:.o=.d)
 
