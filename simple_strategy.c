@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/11 02:06:56 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/12 00:06:53 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/17 01:16:46 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,13 +57,15 @@ static void	locate_lowest_rank(t_context *ctx, int *num_traversed_lowest_node)
 	}
 }
 
-void	simple_sort(t_context *ctx)
+bool	simple_sort(t_context *ctx)
 {
 	int	size_a;
 	int	num_traversed_lowest_node;
 
+	if (!ctx)
+		return (false);
 	if (ctx->mistake == 0)
-		return ;
+		return (true);
 	size_a = (int) ft_lstsize(ctx->a);
 	while (size_a > 3)
 	{
@@ -75,4 +77,5 @@ void	simple_sort(t_context *ctx)
 	sort_three(ctx);
 	while (ft_lstsize(ctx->b) > 0)
 		pa(ctx);
+	return (true);
 }
