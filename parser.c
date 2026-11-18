@@ -6,7 +6,7 @@
 /*   By: pmansak <pmansak@student.42bangkok.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 15:56:02 by pmansak           #+#    #+#             */
-/*   Updated: 2026/11/08 20:30:11 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/18 21:05:23 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,44 +14,35 @@
 #include <limits.h>
 #include <stdbool.h>
 
-/*
-// To verify if the format of passed string matches with flag syntax.
-static bool	is_valid_flag_syntax(const char *str)
+// The `flag` struct must be zeroed before the call. `ft_bzero` to ctx does
+// the job.
+// When the function returns false, the flag struct may be partly filled but
+// that does not matter, as long as the caller treat false as an error and
+// does not use the struct afterward.
+// The function assumes that flags must be placed before any valid numbers.
+bool	parse_flags(char **argv, t_flag *flag)
 {
-	size_t	i;
+	int	i;
 
-	if (ft_strlen(str) <= 2)
+	if (!argv || !flag)
 		return (false);
-	i = 0;
-	while ((i <= 1) && (str[i] == '-'))
-		++i;
-	while ((str[i]) && (ft_isalpha(str[i])) && (i <= 9))
-		++i;
-	if (!str[i])
-		return (true);
-	return (false);
-}
-*/
-/*
-// To verify if the passed string is one of valid flags.
-static bool	is_valid_flag(const char *str)
-{
-	const char	*flags[] = {"--simple", "--medium", "--complex",
-		"--adaptive", "--bench"};
-	size_t		i;
-
-	if (!is_valid_flag_syntax(str))
-		return (false);
-	i = 0;
-	while (i < 5)
+	i = 1;
+	while ((argv[i] != NULL) && (is_flag(argv[i])))
 	{
-		if (!ft_strcmp(str, flags[i]))
-			return (true);
+		if ((!flag->bench) && (!ft_strcmp(argv[i], "--bench")))
+			flag->bench = true;
+		else if ((flag->bench) && (!ft_strcmp(argv[i], "--bench")))
+			return (false);
+		else if (flag->strategy == UNSET)
+			flag->strategy = which_strategy_flag(argv[i]);
+		else
+			return (false);
 		++i;
 	}
-	return (false);
+	if (flag->strategy == UNSET)
+		flag->strategy = ADAPTIVE;
+	return (true);
 }
-*/
 
 /**
  *  Parameter:

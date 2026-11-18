@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 15:16:33 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/18 00:48:13 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/18 21:51:37 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,13 @@ void		rrr(t_context *ctx);
 
 // parser.c
 bool		parse_int(const char *s, int *out);
+bool		parse_flags(char **argv, t_flag *flag);
 
 // parser_02.c
 bool		is_duplicated(int count, int *num_buf);
 int			which_strategy_flag(const char *str);
-int			parse_valid_int_string_with_flags(int argc, char **argv,
-				t_flag *flag, int *num_buf);
 t_list		*create_node(int value, int rank);
-int			initialize_stack(t_list **lst, int count, int *num_buf);
+bool		initialize_stack(t_list **lst, int count, int *num_buf);
 
 // payload_utility.c
 t_payload	*parse_payload(int value, int rank);
@@ -154,7 +153,7 @@ bool		complex_sort(t_context *ctx);
 
 // count_tokens.c
 int			count_tokens(char **argv);
-int			is_flag(const char *str);
+bool		is_flag(const char *str);
 
 // parser03.c
 int			fill_pass(char **argv, int *num_buf);

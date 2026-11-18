@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/08 21:00:33 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/10 22:26:43 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/18 21:51:47 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,34 +54,34 @@ int	which_strategy_flag(const char *str)
 // Assuming arguments of the program means numerical values,
 // when only two flags are given, it should produce nothing,
 // so that is the reason `while (i < (argc))` was written that way.
-int	parse_valid_int_string_with_flags(int argc, char **argv,
-t_flag *flag, int *num_buf)
-{
-	int	i;
-	int	count;
-
-	i = 1;
-	while (i < (argc))
-	{
-		if ((!flag->bench) && (!ft_strcmp(argv[i], "--bench")))
-			flag->bench = true;
-		else if ((which_strategy_flag(argv[i]) != UNSET)
-			&& (flag->strategy == UNSET))
-			flag->strategy = which_strategy_flag(argv[i]);
-		else
-			break ;
-		++i;
-	}
-	count = 0;
-	while (i <= (argc - 1))
-		if (!parse_int(argv[i++], &num_buf[count++]))
-			return (-1);
-	if (flag->strategy == UNSET)
-		flag->strategy = ADAPTIVE;
-	if (!is_duplicated(count, num_buf))
-		return (count);
-	return (-1);
-}
+//int	parse_valid_int_string_with_flags(int argc, char **argv,
+//t_flag *flag, int *num_buf)
+//{
+//	int	i;
+//	int	count;
+//
+//	i = 1;
+//	while (i < (argc))
+//	{
+//		if ((!flag->bench) && (!ft_strcmp(argv[i], "--bench")))
+//			flag->bench = true;
+//		else if ((which_strategy_flag(argv[i]) != UNSET)
+//			&& (flag->strategy == UNSET))
+//			flag->strategy = which_strategy_flag(argv[i]);
+//		else
+//			break ;
+//		++i;
+//	}
+//	count = 0;
+//	while (i <= (argc - 1))
+//		if (!parse_int(argv[i++], &num_buf[count++]))
+//			return (-1);
+//	if (flag->strategy == UNSET)
+//		flag->strategy = ADAPTIVE;
+//	if (!is_duplicated(count, num_buf))
+//		return (count);
+//	return (-1);
+//}
 
 // To create a complete node by passing value and rank to payload helper.
 t_list	*create_node(int value, int rank)
@@ -99,7 +99,7 @@ t_list	*create_node(int value, int rank)
 }
 
 // A rank is how many numbers smaller than another number.
-int	initialize_stack(t_list **lst, int count, int *num_buf)
+bool	initialize_stack(t_list **lst, int count, int *num_buf)
 {
 	int			i;
 	int			j;
@@ -119,9 +119,9 @@ int	initialize_stack(t_list **lst, int count, int *num_buf)
 		}
 		node = create_node(num_buf[i], rank);
 		if (!node)
-			return (ft_lstclear(lst, free), -1);
+			return (ft_lstclear(lst, free), false);
 		ft_lstadd_back(lst, node);
 		++i;
 	}
-	return (1);
+	return (true);
 }

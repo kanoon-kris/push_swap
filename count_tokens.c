@@ -6,11 +6,12 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:24:35 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/18 00:12:17 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/18 21:37:47 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdbool.h>
 
 static size_t	count_word(char const *s, char c)
 {
@@ -39,20 +40,10 @@ static size_t	count_word(char const *s, char c)
 	return (count);
 }
 
-int	is_flag(const char *str)
+bool	is_flag(const char *str)
 {
-	int	result;
-
-	result = which_strategy_flag(str);
-	if (result == UNSET)
-	{
-		result = ft_strcmp("--bench", str);
-		if (result == 0)
-			return (42);
-		else
-			return (UNSET);
-	}
-	return (result);
+	return ((which_strategy_flag(str) != UNSET)
+		|| !(ft_strcmp("--bench", str)));
 }
 
 // Assumption:
@@ -68,8 +59,7 @@ int	count_tokens(char **argv)
 		return (-1);
 	count = 0;
 	i = 1;
-	while ((argv[i] != NULL) && ((which_strategy_flag(argv[i]) != UNSET)
-			|| !(ft_strcmp("--bench", argv[i]))))
+	while ((argv[i] != NULL) && (is_flag(argv[i])))
 		++i;
 	while (argv[i] != NULL)
 	{
