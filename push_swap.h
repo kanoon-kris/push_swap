@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 15:16:33 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/17 23:24:05 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/18 00:48:13 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,5 +154,9 @@ bool		complex_sort(t_context *ctx);
 
 // count_tokens.c
 int			count_tokens(char **argv);
+int			is_flag(const char *str);
+
+// parser03.c
+int			fill_pass(char **argv, int *num_buf);
 
 #endif

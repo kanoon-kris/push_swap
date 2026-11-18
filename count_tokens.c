@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 22:24:35 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/17 23:39:41 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/18 00:12:17 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,22 @@ static size_t	count_word(char const *s, char c)
 		++idx;
 	}
 	return (count);
+}
+
+int	is_flag(const char *str)
+{
+	int	result;
+
+	result = which_strategy_flag(str);
+	if (result == UNSET)
+	{
+		result = ft_strcmp("--bench", str);
+		if (result == 0)
+			return (42);
+		else
+			return (UNSET);
+	}
+	return (result);
 }
 
 // Assumption:
