@@ -6,7 +6,7 @@
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 15:23:10 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/18 21:49:38 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/20 02:34:06 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 static bool	run_strategy(t_context *ctx)
 {
+	if (!ctx)
+		return (false);
 	if (ctx->resolved_strategy == SIMPLE)
 		return (simple_sort(ctx));
 	else if (ctx->resolved_strategy == MEDIUM)
@@ -27,6 +29,8 @@ static bool	select_strategy(t_context *ctx)
 	long long	mistake;
 	long long	total_pair;
 
+	if (!ctx)
+		return (false);
 	mistake = ctx->mistake;
 	total_pair = ctx->total_pair;
 	if (ctx->flags.strategy != ADAPTIVE)
