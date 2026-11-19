@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser_02.c                                        :+:      :+:    :+:   */
+/*   parser02.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/08 21:00:33 by kboonkos          #+#    #+#             */
-/*   Updated: 2026/11/18 21:51:47 by kboonkos         ###   ########.fr       */
+/*   Updated: 2026/11/20 02:22:34 by kboonkos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,41 +47,6 @@ int	which_strategy_flag(const char *str)
 		return (ADAPTIVE);
 	return (UNSET);
 }
-
-// To parse only string with correct format with duplicate check.
-// If flags are faulty or duplicated, return (-1); otherwise,
-// return the number of numerical values--zero number of numbers is valid.
-// Assuming arguments of the program means numerical values,
-// when only two flags are given, it should produce nothing,
-// so that is the reason `while (i < (argc))` was written that way.
-//int	parse_valid_int_string_with_flags(int argc, char **argv,
-//t_flag *flag, int *num_buf)
-//{
-//	int	i;
-//	int	count;
-//
-//	i = 1;
-//	while (i < (argc))
-//	{
-//		if ((!flag->bench) && (!ft_strcmp(argv[i], "--bench")))
-//			flag->bench = true;
-//		else if ((which_strategy_flag(argv[i]) != UNSET)
-//			&& (flag->strategy == UNSET))
-//			flag->strategy = which_strategy_flag(argv[i]);
-//		else
-//			break ;
-//		++i;
-//	}
-//	count = 0;
-//	while (i <= (argc - 1))
-//		if (!parse_int(argv[i++], &num_buf[count++]))
-//			return (-1);
-//	if (flag->strategy == UNSET)
-//		flag->strategy = ADAPTIVE;
-//	if (!is_duplicated(count, num_buf))
-//		return (count);
-//	return (-1);
-//}
 
 // To create a complete node by passing value and rank to payload helper.
 t_list	*create_node(int value, int rank)
