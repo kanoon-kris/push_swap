@@ -6,7 +6,7 @@
 #    By: kboonkos <kboonkos@student.42bangkok.com>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/23 15:40:51 by kboonkos          #+#    #+#              #
-#    Updated: 2026/11/20 02:31:18 by kboonkos         ###   ########.fr        #
+#    Updated: 2026/11/23 01:54:00 by kboonkos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,14 +50,10 @@ fclean: clean
 
 re: fclean all
 
-run:
-	@echo "Edit this line"
-
 norm:
-	norminette $(SRCS)
-	norminette push_swap.h ../libft.h
-	norminette -R CheckForbiddenSourceHeader push_swap.h libft/libft.h
+	norminette push_swap.h $(LIBFT_DIR)/libft.h
+	norminette -R CheckForbiddenSourceHeader $(SRC)
 
 # Include the dependency files if they exist.
 -include $(DEPS)
-.PHONY: all clean fclean re run norm
+.PHONY: all clean fclean re norm
